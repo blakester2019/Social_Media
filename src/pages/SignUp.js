@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 import FirebaseApp from "../firebase/Firebase";
 
 function SignUp({ history }) {
@@ -9,6 +10,7 @@ function SignUp({ history }) {
 
       try {
         await FirebaseApp.auth().createUserWithEmailAndPassword(email.value, password.value);
+        history.push("/");
       } catch(error) {
         alert(error);
       }
@@ -24,6 +26,7 @@ function SignUp({ history }) {
         <input name="password" type="password" placeholder="Password" />
         <button type="submit">Sign Up</button>
       </form>
+      <p>Already have an account? <Link to="/login">log in here</Link></p>
     </div>
   );
 }
