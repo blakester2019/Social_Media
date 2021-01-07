@@ -1,5 +1,5 @@
 import React from "react";
-import FirebaseApp from "../firebase/Firebase";
+import FirebaseApp, { FindUsername } from "../firebase/Firebase";
 import { useUser } from "../hooks";
 
 function Home() {
@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <h1>Home</h1>
-      <p>Hello there, {user?.email}</p>
+      <p>Hello there, {FindUsername(user?.email)}</p>
       <button onClick={() => FirebaseApp.auth().signOut()}>signOut</button>
     </>
   );
