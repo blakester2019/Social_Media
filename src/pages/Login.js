@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import FirebaseApp from "../firebase/Firebase";
 import { useUser } from "../hooks";
+import homeImage from '../imgs/homeImage.jpg';
 
 function Login({ history }) {
   const handleLogin = useCallback(
@@ -26,14 +27,24 @@ function Login({ history }) {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <input name="email" type="email" placeholder="Email" />
-        <input name="password" type="password" placeholder="Password" />
-        <button type="submit">Log In</button>
-      </form>
-      <p>Dont have an account? <Link to="/signup">sign up</Link></p>
+    <div className="loginContainer">
+      <div className="header">
+        <h1>Blakr</h1>
+        <Link to="/signup" style={{ textDecoration: 'none' }}><p>Sign Up</p></Link>
+      </div>
+      <div className="flex-container">
+        <div className="leftFlex">
+          <h2>Welcome back,<br />log in to your account</h2>
+          <form className="login-signup-form" onSubmit={handleLogin}>
+            <input name="email" type="email" placeholder="Email" />
+            <input name="password" type="password" placeholder="Password" />
+            <button type="submit">Log In</button>
+          </form>
+        </div>
+        <div className="rightFlex">
+          <img src={homeImage}></img>
+        </div>
+      </div>
     </div>
   );
 }
