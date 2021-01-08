@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.eslintcache
+debug.log
+
+manifest.json
+robots.txt
+favicon.ico
