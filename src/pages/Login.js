@@ -29,7 +29,7 @@ function Login({ history }) {
   return (
     <div className="login-signup-container">
       <div className="header">
-        <h1>Blakr</h1>
+        <h1>StockTalk</h1>
         <Link to="/signup" style={{ textDecoration: 'none' }}><p>Sign Up</p></Link>
       </div>
       <div className="flex-container">

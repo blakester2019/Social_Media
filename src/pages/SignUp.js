@@ -23,13 +23,13 @@ function SignUp({ history }) {
   return (
     <div className="login-signup-container">
       <div className="header">
-        <h1>Blakr</h1>
+        <h1>StockTalk</h1>
         <Link to="/login" style={{ textDecoration: 'none' }}><p>Sign In</p></Link>
       </div>
       <div className="signUpContainer">
         <div className="signup-leftFlex">
           <h2>Get Started</h2>
-          <h3>Create an account to use Blakr</h3>
+          <h3>Create an account to use StockTalk</h3>
           <img src={homeImage} alt="Blakr Home"></img>
         </div>
         <div className="signup-rightFlex">

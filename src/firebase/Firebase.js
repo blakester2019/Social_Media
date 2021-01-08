@@ -14,19 +14,16 @@ const FirebaseApp = firebase.initializeApp({
 
 const database = firebase.firestore();
 
-export function AddUser(fname, lname, username, email) {
-  database.collection("users").add({
+export async function AddUser(fname, lname, username, email) {
+  const data = {
     first: fname,
     last: lname,
     username: username,
     email: email
-  })
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-    console.log("Error addidng document: ", error);
-  });
+  }
+
+  await database.collection("users").doc(username).set(data);
+  console.log("New user created");
 };
 
 export function FindUsername(email) {
