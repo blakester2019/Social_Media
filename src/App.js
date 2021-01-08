@@ -7,8 +7,6 @@ import { AuthProvider } from "./providers";
 import PrivateRoute from "./routes/PrivateRoute";
 import './App.css';
 
-// test commit on new device
-
 function App() {
   return (
     <AuthProvider>

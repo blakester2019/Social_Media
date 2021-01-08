@@ -15,16 +15,16 @@ body {
 }
 
 /* LOGIN PAGE */
-.loginContainer {
+.login-signup-container {
   width: 70%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .header  {
   display: flex;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .header h1, p {flex: 1;}
@@ -88,4 +88,56 @@ body {
 .rightFlex img {
   width: 100%;
   border-radius: 50%;
+  opacity: 2;
+}
+
+/* Sign Up */
+
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+
+.signUpContainer div {flex: 1;}
+
+.signup-leftFlex {
+  text-align: center;
+  color: #11698e;
+}
+
+.signup-leftFlex img{
+  width: 100%;
+  border-radius: 50%;
+  opacity: 2;
+}
+
+.signup-rightFlex h4{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.signUpContainer h2 {
+  font-size: 40px;
+}
+
+.signUpContainer h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.signup-form {
+  margin: auto;
+}
+
+.signup-form input{
+  width: 100%;
+  margin: 0 auto 15px auto;
+}
+
+.signup-form button {
+  width: 100%;
 }

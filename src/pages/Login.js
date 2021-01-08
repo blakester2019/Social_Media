@@ -27,7 +27,7 @@ function Login({ history }) {
   }
 
   return (
-    <div className="loginContainer">
+    <div className="login-signup-container">
       <div className="header">
         <h1>Blakr</h1>
         <Link to="/signup" style={{ textDecoration: 'none' }}><p>Sign Up</p></Link>
@@ -42,7 +42,7 @@ function Login({ history }) {
           </form>
         </div>
         <div className="rightFlex">
-          <img src={homeImage}></img>
+          <img src={homeImage} alt="Blakr Home"></img>
         </div>
       </div>
     </div>
