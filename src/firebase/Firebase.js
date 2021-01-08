@@ -22,7 +22,7 @@ export async function AddUser(fname, lname, username, email) {
     email: email
   }
 
-  await database.collection("users").doc(username).set(data);
+  await database.collection("users").doc(email).set(data);
   console.log("New user created");
 };
 
