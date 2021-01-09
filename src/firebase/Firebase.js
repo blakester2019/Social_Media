@@ -55,7 +55,7 @@ function DisplayUsername(props) {
   )
 }
 
-// SHOW SECTION FOR ADMINS
+// SHOW SECTION FOR ADMINS ONLY
 export function DetermineAdmin(email) {
   const docRef = database.collection("users");
   const query = docRef.where("email", "==", email);
@@ -70,13 +70,28 @@ export function DetermineAdmin(email) {
 }
 
 function DisplayAdminSection(props) {
-  if(props.name == "admin") {
+  if(props.name === "admin") {
     return (
       <AdminForm />
     );
   } else {
     return(<></>);
   }
+}
+
+// CREATE NEW DISCUSSION
+export function createNewDiscussion(title) {
+  const date = new Date();
+  const today = String(date.getMonth()+1) + "/" + String(date.getDate()) + "/" + String(date.getFullYear());
+  
+  database.collection("Discussions").doc(title).set({
+    title: title
+  });
+  database.collection("Discussions").doc(title).collection("messages").doc("all").set({
+    text: "New Discussion created: " + today
+  });
+
+  alert("Discussion Created");
 }
 
 export default FirebaseApp;
