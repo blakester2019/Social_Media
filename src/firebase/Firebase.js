@@ -85,13 +85,35 @@ export function createNewDiscussion(title) {
   const today = String(date.getMonth()+1) + "/" + String(date.getDate()) + "/" + String(date.getFullYear());
   
   database.collection("Discussions").doc(title).set({
-    title: title
+    title: title,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
   });
   database.collection("Discussions").doc(title).collection("messages").doc("all").set({
     text: "New Discussion created: " + today
   });
 
   alert("Discussion Created");
+}
+
+// SHOW DISCUSSIONS
+export function GetDiscussions() {
+  const docRef = database.collection("Discussions");
+  const query = docRef.orderBy('createdAt').limit(2);
+
+  const [discussion] = useCollectionData(query, {idField: 'id'});
+  return (
+    <div>
+      {discussion && discussion.map(thread => <DisplayDiscussions key={thread.id} name={thread.title} />)}
+    </div>
+  )
+}
+
+function DisplayDiscussions(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+    </div>
+  )
 }
 
 export default FirebaseApp;
