@@ -19,6 +19,9 @@ body {
   width: 70%;
   margin: auto;
   margin-top: 30px;
+  animation-name: flow;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
 }
 
 .header  {
@@ -98,6 +101,9 @@ body {
   justify-content: center;
   width: 100%;
   margin: auto;
+  animation-name: flow;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
 }
 
 .signUpContainer div {flex: 1;}
@@ -136,8 +142,21 @@ body {
 .signup-form input{
   width: 100%;
   margin: 0 auto 15px auto;
+  border: none;
+  border-bottom: 1px solid #11698e;
+}
+
+.signup-form input:focus{
+  outline: none;
+  border-bottom: 1px solid #16c79a;
 }
 
 .signup-form button {
   width: 100%;
+}
+
+@keyframes flow {
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
 }

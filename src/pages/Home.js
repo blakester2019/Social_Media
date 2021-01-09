@@ -10,7 +10,7 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <p>Hello there, {FindUsername(user?.email)}</p>
+      {FindUsername(user?.email)}
       <button onClick={() => FirebaseApp.auth().signOut()}>signOut</button>
     </div>
   );

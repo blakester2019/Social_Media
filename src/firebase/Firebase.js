@@ -1,6 +1,8 @@
+import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore"
 
 const FirebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyArNHh_ZAWXNFiomfYaE9TjHWutOaT3EsY",
@@ -27,7 +29,25 @@ export async function AddUser(fname, lname, username, email) {
 };
 
 export function FindUsername(email) {
-  return email;
+  const docRef = database.collection("users");
+  const query = docRef.where("email", "==", email);
+
+  const [name] = useCollectionData(query, {idField: 'id'});
+  return (
+    <div>
+      {name && name.map(uname => <ChatMessage key={uname.id} username="hi" name={uname.username} />)}
+    </div>
+  )
+}
+
+function ChatMessage(props) {
+  return (
+    <>
+      <div>
+        <p>hello, {props.name}</p>
+      </div>
+    </>
+  )
 }
 
 export default FirebaseApp;
