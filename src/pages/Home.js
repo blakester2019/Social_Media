@@ -1,5 +1,5 @@
 import React from "react";
-import FirebaseApp, { FindUsername } from "../firebase/Firebase";
+import FirebaseApp, { FindUsername, DetermineAdmin } from "../firebase/Firebase";
 import { useUser } from "../hooks";
 // Components
 import Suggested from "./HomeComponents/Suggested";
@@ -11,6 +11,7 @@ function Home() {
     <div>
       <h1>Home</h1>
       {FindUsername(user?.email)}
+      {DetermineAdmin(user?.email)}
       <button onClick={() => FirebaseApp.auth().signOut()}>signOut</button>
     </div>
   );
