@@ -8,12 +8,14 @@ import Discussions from "./HomeComponents/Discussions";
 function Home() {
   const user = useUser();
   return (
-    <div>
-      <h1>Home</h1>
-      {FindUsername(user?.email)}
+    <div className="homeContainer">
+      <div className="homeHeader">
+        <h1>Home</h1>
+        {FindUsername(user?.email)}
+        <button onClick={() => FirebaseApp.auth().signOut()}>Sign Out</button>
+      </div>
       {DetermineAdmin(user?.email)}
       <Discussions />
-      <button onClick={() => FirebaseApp.auth().signOut()}>signOut</button>
     </div>
   );
 }

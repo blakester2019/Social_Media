@@ -160,3 +160,87 @@ body {
   50% {opacity: 0.5;}
   100% {opacity: 1;}
 }
+
+/* Home Page */
+.homeContainer {
+  width: 70%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.homeHeader {
+  display: flex;
+  margin-bottom: 70px;
+}
+
+.homeHeader h1 {
+  flex: 1;
+  color: #16c79a;
+}
+
+.username {
+  margin-right: 12px;
+}
+
+.homeHeader button {
+  color: #11698e;
+  background: white;
+  border: 2px solid #11698e;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 5px;
+}
+
+.homeHeader button:hover {
+  cursor: pointer;
+  background: #37b2e8af;
+}
+
+.adminContainer {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.adminContainer h1{
+  color: #11698e;
+  font-size: 45px;
+  text-decoration: underline;
+}
+
+.adminContainer h2 {
+  color: #16c79a;
+  margin: 20px 0;
+  font-size: 30px;
+}
+
+.adminContainer input {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid #11698e;
+}
+
+.adminContainer input:focus{
+  outline: none;
+  border-bottom: 1px solid #16c79a;
+}
+
+.adminContainer button {
+  margin-left: 20px;
+  font-size: 20px;
+  color: #11698e;
+  background: white;
+  border: 2px solid #11698e;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 2px 10px;
+}
+
+.adminContainer button:hover {
+  cursor: pointer;
+  background: #37b2e8af;
+}
+
+.discussionElement {
+  width: 50%;
+}

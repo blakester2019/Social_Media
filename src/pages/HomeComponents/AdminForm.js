@@ -18,7 +18,8 @@ function AdminForm() {
   );
 
   return (
-    <div>
+    <div className="adminContainer">
+      <h1>Admin Privileges</h1>
       <h2>Create New Discussion</h2>
       <form onSubmit={handleNewDiscussion}>
         <input name="title" type="text" placeholder="Title" />

@@ -1,6 +1,7 @@
 // IMPORTS
 // react and firebase
 import React from "react";
+import { Link } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -49,9 +50,7 @@ export function FindUsername(email) {
 
 function DisplayUsername(props) {
   return (
-    <div>
-      <h2>Hello, {props.name}</h2>
-    </div>
+    <h1 className="username">{props.name}</h1>
   )
 }
 
@@ -98,20 +97,21 @@ export function createNewDiscussion(title) {
 // SHOW DISCUSSIONS
 export function GetDiscussions() {
   const docRef = database.collection("Discussions");
-  const query = docRef.orderBy('createdAt').limit(2);
+  const query = docRef.orderBy('createdAt').limit(5);
 
-  const [discussion] = useCollectionData(query, {idField: 'id'});
+  const [discussion] = useCollectionData(query);
   return (
     <div>
-      {discussion && discussion.map(thread => <DisplayDiscussions key={thread.id} name={thread.title} />)}
+      {discussion && discussion.map(thread => <DisplayDiscussions key={thread} name={thread.title} />)}
     </div>
   )
 }
 
 function DisplayDiscussions(props) {
+  const link = "/home/discussion/" + props.name;
   return (
-    <div>
-      <h2>{props.name}</h2>
+    <div className="discussionElement" id={props.name}>
+      <Link to={link} style={{ textDecoration: 'none' }}><h2>{props.name}</h2></Link>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Chat from "./pages/Chat";
 import { AuthProvider } from "./providers";
 import PrivateRoute from "./routes/PrivateRoute";
 import './App.css';
@@ -15,6 +16,7 @@ function App() {
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <PrivateRoute path="/home/discussion" component={Chat} />
         </div>
       </Router>
     </AuthProvider>
