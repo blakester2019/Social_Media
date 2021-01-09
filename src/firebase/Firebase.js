@@ -35,12 +35,12 @@ export function FindUsername(email) {
   const [name] = useCollectionData(query, {idField: 'id'});
   return (
     <div>
-      {name && name.map(uname => <ChatMessage key={uname.id} username="hi" name={uname.username} />)}
+      {name && name.map(uname => <displayUsername key={uname.id} username="hi" name={uname.username} />)}
     </div>
   )
 }
 
-function ChatMessage(props) {
+function displayUsername(props) {
   return (
     <>
       <div>
