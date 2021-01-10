@@ -6,6 +6,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore"
+import useUser from "../hooks/useUser";
 //components
 import AdminForm from "../pages/HomeComponents/AdminForm";
 
@@ -21,6 +22,7 @@ const FirebaseApp = firebase.initializeApp({
 });
 
 const database = firebase.firestore();
+const auth = firebase.auth();
 
 // ADD USER TO USERS COLLECTION IN FIRESTORE
 export async function AddUser(fname, lname, username, email) {
@@ -87,7 +89,7 @@ export function createNewDiscussion(title) {
     title: title,
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   });
-  database.collection("Discussions").doc(title).collection("messages").doc("all").set({
+  database.collection("Discussions").doc(title).collection("messages").doc("new").set({
     text: "New Discussion created: " + today
   });
 
@@ -116,6 +118,36 @@ function DisplayDiscussions(props) {
   )
 }
 
+// GET USERNAME FOR MESSAGES
+function GetMessageUsername(email) {
+  const docRef = database.collection("users");
+  const query = docRef.where("email", "==", email);
+
+  const [name] = useCollectionData(query);
+  return (
+    <div>
+      {name && name.map(uname => <DisplayMessageUsername key={uname.id} name={uname.username} />)}
+    </div>
+  )
+}
+
+function DisplayMessageUsername(props) {
+  return (
+    <p>{props.name}</p>
+  )
+}
+
+
+// CREATE NEW MESSAGE
+export function CreateNewMessage(document, text) {
+  const user = auth.currentUser;
+  database.collection("Discussions").doc(document).collection("messages").add({
+    text: text,
+    created: firebase.firestore.FieldValue.serverTimestamp(),
+    userEmail: user.email
+  })
+}
+
 /* Discussion Chats */
 export function GetMessages(document) {
   const messagesRef = database.collection("Discussions").doc(document).collection("messages");
@@ -131,11 +163,20 @@ export function GetMessages(document) {
 }
 
 function Message(props) {
-  const { text } = props.message;
+  const { text, userEmail } = props.message;
+  const user = useUser();
+
+  let messageClass = "";
+  if (user?.email === userEmail) {
+    messageClass = "sent";
+  }  else {
+    messageClass = "received";
+  }
 
   return(
-    <div>
-      <p>{text}</p>
+    <div className={`message ${messageClass}`}>
+      <h5>{text}</h5>
+      <p>{GetMessageUsername(userEmail)}</p>
     </div>
   );
 }

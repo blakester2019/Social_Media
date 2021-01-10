@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { createNewDiscussion, GetMessages } from "../firebase/Firebase";
+import { CreateNewMessage, GetMessages } from "../firebase/Firebase";
 import { useLocation } from "react-router-dom";
 
 function GetLocation() {
@@ -22,7 +22,7 @@ function DiscussionChat() {
       const { text } = event.target.elements;
 
       try {
-        await createNewDiscussion(text.value);
+        await CreateNewMessage(documentRef, text.value);
         text.value = "";
       } catch(error) {
         alert(error);

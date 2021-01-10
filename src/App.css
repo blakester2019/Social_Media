@@ -246,3 +246,12 @@ body {
 .discussionElement {
   width: 50%;
 }
+
+/* CHATS */
+.sent {
+  color: green;
+}
+
+.received {
+  color: red;
+}
