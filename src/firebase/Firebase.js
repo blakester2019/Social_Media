@@ -90,7 +90,9 @@ export function createNewDiscussion(title) {
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   });
   database.collection("Discussions").doc(title).collection("messages").doc("new").set({
-    text: "New Discussion created: " + today
+    text: "New Discussion created: " + today,
+    created: firebase.firestore.FieldValue.serverTimestamp(),
+    userEmail: "System"
   });
 
   alert("Discussion Created");

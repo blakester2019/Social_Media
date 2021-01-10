@@ -248,10 +248,142 @@ body {
 }
 
 /* CHATS */
+.chatPage {
+  background: #eee;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.chatContainer {
+  width: 70%;
+  margin: auto;
+}
+
+.chatHeader {
+  background: white;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom: 5px solid #16c79a;
+}
+
+.chatHeaderFlex {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.chatHeader h2, .chatHeader p {
+  flex: 1;
+}
+
+.chatHeader h2 {
+  color: #16c79a;
+  font-weight: 800;
+}
+
+.chatHeader p {
+  text-align: right;
+  text-decoration: none;
+  color: #11698e;
+  font-weight: 800;
+  padding: 8px;
+  border: 1px solid #11698e;
+  border-radius: 20px;
+}
+
+.chatHeader p:hover {
+  background: #11698e65;
+}
+
+.messagesTitle {
+  text-align: center;
+  color: #11698e;
+  margin: 30px 0;
+}
+
+.messagesContainer {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message h5 {
+  font-size: 20px;
+}
+
+.message {
+  display: block;
+}
+
+.message p {
+  margin-bottom: 10px;
+}
+
 .sent {
-  color: green;
+  width: max-content;
+  max-width: 48%;
+  color: white;
+  background: #16c79a;
+  padding: 8px;
+  margin: 20px 0 20px auto;
+  text-align: right;
 }
 
 .received {
-  color: red;
+  width: max-content;
+  max-width: 48%;
+  color: white;
+  background: #11698e;
+  padding: 8px;
+  margin: 20px auto 20px 0;
+  text-align: left;
+}
+
+.messageForm {
+  margin: auto;
+  width: 80%;
+}
+
+.messageForm input {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.messageForm button {
+  margin: auto;
+  font-size: 40px;
+  color: #16c79a;
+  background: white;
+  border: 2px solid #16c79a;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 2px 10px;
+}
+
+.messageForm button:hover {
+  cursor: pointer;
+  background: #16c79b8a;
+}
+
+.formContainer {
+  padding-bottom: 50px;
+}
+
+/* RESPONSIVENESS */ 
+@media (max-width: 1200px) {
+  .chatHeaderFlex {
+    width: 80%;
+  }
+  .chatContainer {
+    width: 80%;
+  }
+  .messagesContainer {
+    width: 100%;
+  }
 }

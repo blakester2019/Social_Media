@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { CreateNewMessage, GetMessages } from "../firebase/Firebase";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function GetLocation() {
   const location = useLocation();
@@ -28,17 +28,29 @@ function DiscussionChat() {
         alert(error);
       }
     },
-    []
+    [documentRef]
   );
 
   return (
-    <div>
-      <h2>Welcome to the chat</h2>
-      <form onSubmit={handleNewMessage}>
-        <input name="text" type="text" placeholder="Begin typing your message" />
-        <button type="submit">Create</button>
-      </form>
-      {GetMessages(documentRef)}
+    <div className="chatPage">
+      <div className="chatHeader">
+        <div className="chatHeaderFlex">
+          <h2>{documentRef}</h2>
+          <Link to="/" style={{textDecoration: 'none'}}><p>Back To Home</p></Link>
+        </div>
+      </div>
+      <h1 className="messagesTitle">Messages</h1>
+      <div className="chatContainer">
+        <div className="messagesContainer">
+          {GetMessages(documentRef)}
+        </div>
+        <div className="formContainer">
+          <form className="messageForm" onSubmit={handleNewMessage}>
+            <input rows="2" name="text" type="text" placeholder="Begin typing your message" />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
