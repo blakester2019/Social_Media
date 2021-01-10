@@ -177,8 +177,8 @@ function Message(props) {
 
   return(
     <div className={`message ${messageClass}`}>
-      <h5>{text}</h5>
       <p>{GetMessageUsername(userEmail)}</p>
+      <h5>{text}</h5>
     </div>
   );
 }
