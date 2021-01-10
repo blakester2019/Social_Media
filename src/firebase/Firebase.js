@@ -116,4 +116,28 @@ function DisplayDiscussions(props) {
   )
 }
 
+/* Discussion Chats */
+export function GetMessages(document) {
+  const messagesRef = database.collection("Discussions").doc(document).collection("messages");
+  const query = messagesRef.orderBy('created').limit(25);
+
+  const [messages] = useCollectionData(query, {idField: 'id'});
+
+  return (
+    <div>
+      {messages && messages.map(msg => <Message key={msg.id} message={msg} />)}
+    </div>
+  );
+}
+
+function Message(props) {
+  const { text } = props.message;
+
+  return(
+    <div>
+      <p>{text}</p>
+    </div>
+  );
+}
+
 export default FirebaseApp;
