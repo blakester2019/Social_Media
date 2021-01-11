@@ -260,11 +260,13 @@ body {
 }
 
 .chatHeader {
+  display: flex;
   background: white;
   width: 100%;
-  border-bottom: 5px solid #16c79a;
-  padding: 20px 0;
-  max-height: 10vh
+  border-bottom: 1px solid rgba(51, 51, 51, 0.674);
+  max-height: 10vh;
+  height: 10vh;
+  align-items: center;
 }
 
 .chatHeaderFlex {
@@ -274,9 +276,15 @@ body {
   align-items: center;
 }
 
-.chatHeader h2, .chatHeader p {
+.chatHeader h2 {
   flex: 1;
 }
+
+.chatHeader p {
+  flex: 2;
+}
+
+.chatHeader 
 
 .chatHeader h2 {
   color: #16c79a;
@@ -314,7 +322,7 @@ body {
 }
 
 .message h5 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .message {
@@ -322,8 +330,8 @@ body {
 }
 
 .message p {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 3px;
 }
 
 .sent {

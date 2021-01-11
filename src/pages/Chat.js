@@ -1,6 +1,9 @@
 import React, { useCallback } from "react";
 import { CreateNewMessage, GetMessages } from "../firebase/Firebase";
 import { Link, useLocation } from "react-router-dom";
+import { useUser } from "../hooks";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 function GetLocation() {
   const location = useLocation();
@@ -16,6 +19,7 @@ function GetLocation() {
 
 function DiscussionChat() {
   let documentRef = GetLocation();
+  let user = useUser();
   const handleNewMessage = useCallback(
     async event => {
       event.preventDefault();
@@ -36,10 +40,10 @@ function DiscussionChat() {
       <div className="chatHeader">
         <div className="chatHeaderFlex">
           <h2>{documentRef}</h2>
+          <button><FontAwesomeIcon icon={faHeart} /></button>
           <Link to="/" style={{textDecoration: 'none'}}><p>Back To Home</p></Link>
         </div>
       </div>
-      <h1 className="messagesTitle">Messages</h1>
       <div className="chatContainer">
         <div className="messagesContainer">
           {GetMessages(documentRef)}

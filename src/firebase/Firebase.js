@@ -183,4 +183,10 @@ function Message(props) {
   );
 }
 
+/* LIKES */
+
+function AddOrRemoveLike(docRef, email) {
+  
+}
+
 export default FirebaseApp;
