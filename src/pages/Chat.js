@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { CreateNewMessage, GetMessages } from "../firebase/Firebase";
+import { CreateNewMessage, GetMessages, AddOrRemoveLikes } from "../firebase/Firebase";
 import { Link, useLocation } from "react-router-dom";
 import { useUser } from "../hooks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,7 +40,7 @@ function DiscussionChat() {
       <div className="chatHeader">
         <div className="chatHeaderFlex">
           <h2>{documentRef}</h2>
-          <button><FontAwesomeIcon icon={faHeart} /></button>
+          <button onClick={AddOrRemoveLikes(documentRef, user?.email)}><FontAwesomeIcon icon={faHeart} /></button>
           <Link to="/" style={{textDecoration: 'none'}}><p>Back To Home</p></Link>
         </div>
       </div>

@@ -185,8 +185,19 @@ function Message(props) {
 
 /* LIKES */
 
-function AddOrRemoveLike(docRef, email) {
-  
+export async function AddOrRemoveLikes(docRef, email) {
+  const userRef = database.collection("Discussions").doc(docRef).collection("usersLiked").doc(email);
+  const discussion = database.collection("Discussions").doc(docRef);
+  const checkForDoc = await userRef.get();
+
+  if (!checkForDoc.exists) {
+    userRef.set({
+      userEmail: email
+    });
+    discussion.update({
+      likes: firebase.firestore.FieldValue.increment(1)
+    })
+  }
 }
 
 export default FirebaseApp;
