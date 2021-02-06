@@ -4,7 +4,11 @@ import { useUser } from "../hooks";
 // Components
 import Discussions from "./HomeComponents/Discussions";
 
-// need to add suggested after querying is figured out
+/*
+ - Returns the home page once a user is logged in
+ - Home page contains the links to all discussions
+*/
+
 function Home() {
   const user = useUser();
   return (

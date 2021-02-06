@@ -244,7 +244,7 @@ body {
 }
 
 .discussionElement {
-  width: 50%;
+  width: max-content;
 }
 
 /* CHATS */

@@ -8,6 +8,11 @@ import { AuthProvider } from "./providers";
 import PrivateRoute from "./routes/PrivateRoute";
 import './App.css';
 
+/*
+ - Holds all the routes to the components in the pages folder
+ - Private Routes require the user to be logged in before use
+*/
+
 function App() {
   return (
     <AuthProvider>

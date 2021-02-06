@@ -5,6 +5,11 @@ import FirebaseApp from "../firebase/Firebase";
 import { useUser } from "../hooks";
 import homeImage from '../imgs/homeImage.jpg';
 
+/*
+ - Returns a redirect to "/" if user is already logged in
+ - If not already logged in, returns log in page
+*/
+
 function Login({ history }) {
   const handleLogin = useCallback(
     async event => {
@@ -22,10 +27,12 @@ function Login({ history }) {
 
   const currentUser = useUser();
 
+  // if logged in
   if(currentUser) {
     return <Redirect to="/" />;
   }
 
+  // if not logged in
   return (
     <div className="login-signup-container">
       <div className="header">

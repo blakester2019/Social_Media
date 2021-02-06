@@ -3,13 +3,22 @@ import { CreateNewMessage, GetMessages, AddOrRemoveLikes } from "../firebase/Fir
 import { Link, useLocation } from "react-router-dom";
 import { useUser } from "../hooks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
+/*
+ GetLocation()
+  - Returns the current path location used to find direstore document
+
+  DiscussionChat()
+  - Returns the chat for individual discussions
+*/
 
 function GetLocation() {
   const location = useLocation();
   const path = location.pathname;
   let doc = "";
   // Set i to 17 to only get path after /home/discussion/
+  // I need a better way of doing this
   for (let i=17; i<path.length; i++) {
     doc = doc + path[i];
   }
