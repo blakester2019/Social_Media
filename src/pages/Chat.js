@@ -49,11 +49,11 @@ function DiscussionChat() {
       <div className="chatHeader">
         <div className="chatHeaderFlex">
           <h2>{documentRef}</h2>
-          <button onClick={AddOrRemoveLikes(documentRef, user?.email)}><FontAwesomeIcon icon={faHeart} /></button>
+          <button class="likeButton" onClick={AddOrRemoveLikes(documentRef, user?.email)}><FontAwesomeIcon icon={faHeart} /></button>
           <Link to="/" style={{textDecoration: 'none'}}><p>Back To Home</p></Link>
         </div>
       </div>
-      <div className="chatContainer">
+      <div id="chatContainer" className="chatContainer">
         <div className="messagesContainer">
           {GetMessages(documentRef)}
         </div>

@@ -153,7 +153,7 @@ export function CreateNewMessage(document, text) {
 /* Discussion Chats */
 export function GetMessages(document) {
   const messagesRef = database.collection("Discussions").doc(document).collection("messages");
-  const query = messagesRef.orderBy('created').limit(25);
+  const query = messagesRef.orderBy("created").limit(25);
 
   const [messages] = useCollectionData(query, {idField: 'id'});
 
